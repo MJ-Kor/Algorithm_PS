@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -38,6 +37,7 @@ public class Main {
 	}
 		
 	public static void worldCup(int cnt) {
+        if(flag == 1) return;
 		if(cnt == totalGame) {
 			flag = 1;
 			return;
@@ -50,7 +50,6 @@ public class Main {
 			groupStage[team1[cnt]][0]++;
 			groupStage[team2[cnt]][2]++;
 		} 
-
 		if(groupStage[team1[cnt]][1] - 1 >= 0 && groupStage[team2[cnt]][1] - 1 >= 0) {			
 			groupStage[team1[cnt]][1]--;
 			groupStage[team2[cnt]][1]--;
@@ -58,7 +57,6 @@ public class Main {
 			groupStage[team1[cnt]][1]++;
 			groupStage[team2[cnt]][1]++;
 		} 
-
 		if(groupStage[team1[cnt]][2] - 1 >= 0 && groupStage[team2[cnt]][0] - 1 >= 0) {			
 			groupStage[team1[cnt]][2]--;
 			groupStage[team2[cnt]][0]--;
