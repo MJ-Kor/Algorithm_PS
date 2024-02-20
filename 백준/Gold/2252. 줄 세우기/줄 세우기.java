@@ -8,23 +8,6 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
-
-	static class Node{
-		int to;
-		Node next;
-		
-		public Node(int to, Node next) {
-			super();
-			this.to = to;
-			this.next = next;
-		}
-
-		public Node(int to) {
-			super();
-			this.to = to;
-		}
-		
-	}
 	
 	private static int N, M, A, B;
 	private static int[] inDegree;
