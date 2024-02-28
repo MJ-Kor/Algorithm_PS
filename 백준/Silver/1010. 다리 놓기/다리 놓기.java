@@ -1,40 +1,32 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
- 
-	public static void main(String[] args) {
-		
-		Scanner in = new Scanner(System.in);
-		
-		int[][] dp = new int[30][30];
- 
-		for (int i = 0; i < 30; i++) {
-			dp[i][i] = 1;
-			dp[i][0] = 1;
-		}
-			
- 
-		for (int i = 2; i < 30; i++) {
-			for (int j = 1; j < 30; j++) { 
-				dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j];
-			}
-		}
-        
-        
-		
-		int T = in.nextInt();
+
+	static int[][] dp;
 	
-		StringBuilder sb = new StringBuilder();
-        
-		for(int i = 0; i < T; i++) {
- 
-			int N = in.nextInt();	
-			int M = in.nextInt();	
-			
-			sb.append(dp[M][N]).append('\n');
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = null;
+		int T = Integer.parseInt(br.readLine());
+		for (int test_case = 1; test_case <= T; test_case++) {
+			st = new StringTokenizer(br.readLine());
+			int N = Integer.parseInt(st.nextToken());
+			int M = Integer.parseInt(st.nextToken());
+			dp = new int[M + 1][N + 1];
+			for (int m = 0; m <= M; m++) {
+				for (int n = 0, end = Math.min(m, N); n <= end ; n++) {
+					if(n == 0 || n == m) {
+						dp[m][n] = 1;
+					}
+					else {
+						dp[m][n] = dp[m - 1][n - 1] + dp[m - 1][n];
+					}
+				}
+			}
+			System.out.println(dp[M][N]);
 		}
-		
-		System.out.println(sb);
- 
 	}
 }
