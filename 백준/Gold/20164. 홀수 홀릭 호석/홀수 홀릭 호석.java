@@ -15,7 +15,9 @@ public class Main {
     }
 
     static void calculate(String N, int oddNum) {
+//        System.out.println("oddNum = " + oddNum);
         if(N.length() == 1) {
+//            System.out.println("N = " + N);
             min = Math.min(min, oddNum + checkOddNum(N));
 //            System.out.println("min");
             max = Math.max(max, oddNum + checkOddNum(N));
@@ -45,12 +47,14 @@ public class Main {
     }
 
     static int checkOddNum(String num) {
+        int oddNum = 0;
 //        System.out.println("num = " + num);
-        if (Integer.parseInt(num) % 2 != 0){
-            return 1;
-        } else {
-            return 0;
+        for (int i = 0; i < num.length(); i++) {
+            if ((num.charAt(i) - '0') % 2 != 0) {
+                oddNum += 1;
+            }
         }
+        return oddNum;
     }
 
 }
